@@ -1,0 +1,13 @@
+[package]
+name = 'fastrls'
+version = '0.1.0'
+edition = '2021'
+
+[lib]
+crate-type = [ 'staticlib' ]
+name = 'fastrls'
+
+[dependencies]
+extendr-api = '*'
+walkdir = "2"
+jwalk = "0.5"

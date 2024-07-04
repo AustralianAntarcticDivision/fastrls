@@ -2,14 +2,16 @@
 % Please edit documentation in R/walkers.R
 \name{fastrls}
 \alias{fastrls}
-\title{Recursively list files and optionally directories, following symlinks}
+\title{Recursively list files and directories}
 \usage{
-fastrls(dir, include_dirs = TRUE, n_threads = 2L)
+fastrls(dir, include_dirs = TRUE, follow_links = TRUE, n_threads = 2L)
 }
 \arguments{
 \item{dir}{string: starting directory}
 
-\item{include_dirs}{logical: if TRUE, include directories in the results. Note that excluding directories is significantly slower}
+\item{include_dirs}{logical: if \code{TRUE}, include directories in the results}
+
+\item{follow_links}{logical if \code{TRUE}, follow symbolic links}
 
 \item{n_threads}{integer: if > 1, use multiple threads. Might be counter-productive on hardware that can't cope with simultaneous requests (spinning disks?)}
 }
@@ -17,5 +19,5 @@ fastrls(dir, include_dirs = TRUE, n_threads = 2L)
 A character vector
 }
 \description{
-Recursively list files and optionally directories, following symlinks
+Recursively list files and directories
 }

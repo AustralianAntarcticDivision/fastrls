@@ -12,7 +12,7 @@ NULL
 
 walkdir <- function(dir, include_dirs) .Call(wrap__walkdir, dir, include_dirs)
 
-walkdirp <- function(dir, include_dirs) .Call(wrap__walkdirp, dir, include_dirs)
+walkdirp <- function(dir, include_dirs, n_threads) .Call(wrap__walkdirp, dir, include_dirs, n_threads)
 
 
 # nolint end

@@ -14,8 +14,9 @@ fn walkdir(dir: String, include_dirs: bool) -> Vec<String> {
 
 // multithreaded using jwalk
 #[extendr]
-fn walkdirp(dir: String, include_dirs: bool) -> Vec<String> {
-    jwalk::WalkDir::new(dir).follow_links(true).skip_hidden(false).into_iter()
+fn walkdirp(dir: String, include_dirs: bool, n_threads: usize) -> Vec<String> {
+    let prl = jwalk::Parallelism::RayonNewPool(n_threads);
+    jwalk::WalkDir::new(dir).follow_links(true).skip_hidden(false).parallelism(prl).into_iter()
         .filter_map(|e| e.ok()).map(|e| {
             if include_dirs || !e.metadata().unwrap().is_dir() { // including dirs or it's not a dir
                 e.path().to_str().unwrap().to_string()

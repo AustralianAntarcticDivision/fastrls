@@ -4,14 +4,14 @@
 \alias{fastrls}
 \title{Recursively list files and optionally directories, following symlinks}
 \usage{
-fastrls(dir, include_dirs = TRUE, multithreaded = TRUE)
+fastrls(dir, include_dirs = TRUE, n_threads = 2L)
 }
 \arguments{
 \item{dir}{string: starting directory}
 
 \item{include_dirs}{logical: if TRUE, include directories in the results. Note that excluding directories is significantly slower}
 
-\item{multithreaded}{logical: if TRUE, use multiple threads. Might be counter-productive on hardware that can't cope with simultaneous requests (spinning disks?)}
+\item{n_threads}{integer: if > 1, use multiple threads. Might be counter-productive on hardware that can't cope with simultaneous requests (spinning disks?)}
 }
 \value{
 A character vector

@@ -29,16 +29,16 @@ library(microbenchmark)
 ## clear disk cache before each test is run
 clear_cache <- function() system2("sudo", "sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'")
 
-microbenchmark(
-    base = dir("~/temp/", recursive = TRUE, all.files = TRUE, include.dirs = TRUE),
+print(microbenchmark(
+    base = dir(".", recursive = TRUE, all.files = TRUE, include.dirs = TRUE),
     fs = fs::dir_ls(".", recurse = TRUE, all = TRUE, fail = FALSE),
     fastrls = fastrls::fastrls(".", n_threads = 4L),
 
-    times = 10L, control = list(warmup = 1L), setup = clear_cache())
+    times = 10L, control = list(warmup = 1L), setup = clear_cache()), signif = 4)
 ```
 
     Unit: milliseconds
-        expr       min        lq      mean    median        uq       max neval cld
-        base 4715.6781 4757.8224 4816.8141 4809.9948 4833.9616 4976.0532    10 a
-          fs 1545.2190 1575.2991 1657.5119 1603.7403 1657.4901 1969.0511    10  b
-     fastrls  596.5576  609.0954  614.6693  614.6403  622.1317  627.5728    10   c
+        expr    min     lq   mean median     uq  max neval cld
+        base 4679.0 4727.0 4791.0 4742.0 4771.0 5206    10 a
+          fs 1535.0 1583.0 1606.0 1610.0 1635.0 1684    10  b
+     fastrls  597.2  610.7  616.7  613.3  623.8  634    10   c

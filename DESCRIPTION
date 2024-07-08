@@ -1,7 +1,7 @@
 Package: fastrls
 Title: Fast Recursive Directory Listing
 Version: 0.0.2
-Authors@R: c(person("Ben", "Raymond", , "ben.raymond@aad.gov.au", role = c("aut", "cre")))
+Authors@R: c(person("Ben", "Raymond", email = "ben.raymond@aad.gov.au", role = c("aut", "cre")))
 Description: Fast recursive directory listing using Rust crates walkdir <https://github.com/BurntSushi/walkdir> and jwalk <https://github.com/Byron/jwalk>.
 License: MIT + file LICENSE
 Encoding: UTF-8

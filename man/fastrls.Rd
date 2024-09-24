@@ -4,12 +4,23 @@
 \alias{fastrls}
 \title{Recursively list files and directories}
 \usage{
-fastrls(dir, include_dirs = TRUE, follow_links = TRUE, n_threads = 2L)
+fastrls(
+  dir,
+  include_dirs = TRUE,
+  include_files = TRUE,
+  include_links = TRUE,
+  follow_links = TRUE,
+  n_threads = 2L
+)
 }
 \arguments{
 \item{dir}{string: starting directory}
 
 \item{include_dirs}{logical: if \code{TRUE}, include directories in the results}
+
+\item{include_files}{logical: if \code{TRUE}, include files in the results}
+
+\item{include_links}{logical: if \code{TRUE}, include links in the results}
 
 \item{follow_links}{logical if \code{TRUE}, follow symbolic links}
 

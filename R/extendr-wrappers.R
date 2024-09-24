@@ -10,9 +10,9 @@
 #' @useDynLib fastrls, .registration = TRUE
 NULL
 
-walkdir <- function(dir, include_dirs, follow_links) .Call(wrap__walkdir, dir, include_dirs, follow_links)
+walkdir <- function(dir, include_dirs, include_files, include_links, follow_links) .Call(wrap__walkdir, dir, include_dirs, include_files, include_links, follow_links)
 
-walkdirp <- function(dir, include_dirs, follow_links, n_threads) .Call(wrap__walkdirp, dir, include_dirs, follow_links, n_threads)
+walkdirp <- function(dir, include_dirs, include_files, include_links, follow_links, n_threads) .Call(wrap__walkdirp, dir, include_dirs, include_files, include_links, follow_links, n_threads)
 
 
 # nolint end
